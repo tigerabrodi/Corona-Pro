@@ -1,0 +1,145 @@
+
+@import "../../App.scss";
+
+.general {
+    height: 60vh;
+    background-color: $color-black-weak;
+    margin-top: 5rem;
+    position: relative;
+    border: .1rem solid $color-red-light;
+    @include respond(tab-port) {
+        border: none;
+    }
+    @include respond(phone) {
+        height: 70vh;
+    }
+    &__title {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 5%;
+        left: 50%;
+        font-family: "Roboto Condensed";
+        font-size: 3.5rem;
+        font-weight: bold;
+        letter-spacing: .2rem;
+        background-image: linear-gradient(to right, $color-red-light, $color-primary-light);
+        background-clip: text;
+        color: transparent;
+        transition: all .3s;
+        &:hover {
+            text-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.493);
+            transform: translate(-50%, -50%) skewY(10deg) skewX(30deg) scale(1.1);
+        }
+        @include respond(phone) {
+            font-size: 3rem;
+            letter-spacing: 0rem;
+        }
+    }
+    &__card--wrapper {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 50vh;
+        width: 95%;
+        @include respond(phone) {
+            flex-direction: column;
+            height: 57vh;
+        }
+    }
+    &__card {
+        perspective: 100rem;
+        position: relative;
+        height: 90%;
+        width: 30%;
+        border: .1rem solid $color-red-light;
+        box-shadow: 0rem 0rem 5rem black;
+        @include respond(tab-land) {
+            width: 40%;
+        }
+        @include respond(tab-port) {
+            width: 48%;
+        }
+        @include respond(phone) {
+            height: 48%;
+            width: 60%;
+        }
+
+        &__title {
+            font-family: "Roboto Condensed";
+            font-size: 4rem;
+            text-shadow: 0rem .5rem 1rem black;
+            font-weight: bold;
+            color: $color-red-light;
+            text-transform: capitalize;
+            @include respond(phone) {
+                font-size: 3rem;
+            }
+        }
+        &__details {
+            font-family: "Cabin";
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.5;
+            color: $color-primary;
+            text-shadow: 0rem 0rem 1rem black;
+            padding: 1rem 2rem;
+            margin-bottom: auto;
+            @include respond(tab-port) {
+                font-size: 1.8rem;
+            }
+            @include respond(phone) {
+                line-height: 1;
+                font-weight: 400;
+                padding: 0rem;
+                overflow: scroll;
+            }
+        }
+        &__side {
+            height: 100%;
+            transition: all .8s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            backface-visibility: hidden;
+            overflow: hidden;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            &--back {
+            transform: rotateY(180deg);
+            background-color: $color-red-light;
+            }
+            
+            &--front {
+            background-color: transparent;
+            }
+
+            }
+            &:hover &__side--front {
+                transform: rotateY(-180deg);
+            }
+        
+            &:hover &__side--back {
+                transform: rotateY(0);
+            }
+        &__image {
+            height: 50%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            box-shadow: 0rem 1.3rem 1rem black;
+            border: .1rem solid $color-red-light;
+            @include respond(phone) {
+                height: 50%;
+            }
+        }
+    }
+}

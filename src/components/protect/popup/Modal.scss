@@ -1,0 +1,102 @@
+@import "../../../App.scss";
+
+.modal {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    &:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        height: 80vh;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        background-color: $color-red-light;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: .5rem;
+        transition: all 2s;
+    }
+    &__item-wrapper {
+        position: relative;
+        height: 70vh;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        @include respond(tab-port) {
+            height: 80vh;
+        }
+    }
+    &__close {
+        position: absolute;
+        cursor: pointer;
+        top: -1%;
+        left: 97%;
+        color: $color-red;
+        font-weight: bold;
+        font-size: 4rem;
+        text-decoration: none;
+        @include respond(tab-land) {
+            left: 96%;
+            font-size: 5rem;
+        }
+        @include respond(tab-port) {
+            top: -8%;
+            left: 102%;
+            font-size: 8rem;
+        }
+        @include respond(phone) {
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    &__item-box {
+        position: relative;
+        height: 50%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        @include respond(tab-port) {
+            flex-direction: column;
+        }
+    }
+    &__text {
+        font-family: "Cabin";
+        text-align: center;
+        font-size: 1.5rem;
+        color: $color-primary;
+        @include respond(tab-port) {
+            font-weight: bold;
+            padding: 0rem 1rem;
+            font-size: 1.8rem;
+        }
+        @include respond(phone) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__image {
+        width: 50%;
+        padding: 0rem 1rem;
+        @include respond(phone) {
+            width: 60%;
+        }
+    }
+}

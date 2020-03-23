@@ -1,0 +1,77 @@
+// Variables
+$color-primary: #4b0505;
+$color-primary-light: #7a2323;
+$color-black-weak: #00000070;
+$color-black: #000000;
+$color-red-light: rgb(235, 116, 116);
+$color-red: #ff0000;
+$color-white: #e6f1ff;
+
+
+
+// Mixins
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+}
+
+
+// Base Styling (Global Styling)
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; 
+
+    @include respond(tab-land) { 
+        font-size: 56.25%; 
+    }
+
+    @include respond(tab-port) { 
+        font-size: 50%; 
+    }
+    
+    @include respond(big-desktop) {
+        font-size: 75%; 
+    }
+    scroll-behavior: smooth;
+
+}
+
+body {
+    box-sizing: border-box;
+    font-weight: 400;
+    background-color: $color-primary;
+    padding: 2rem;
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+// animations
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

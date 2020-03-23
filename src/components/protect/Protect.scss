@@ -1,0 +1,61 @@
+@import "../../App.scss";
+
+.protect {
+    height: 50vh;
+    margin-top: 5vh;
+    position: relative;
+    &__wrapper {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        @include respond(phone) {
+            width: 90%;
+        }
+    }
+
+    &__title {
+        font-family: "Roboto Condensed";
+        color: $color-red-light;
+        font-size: 3rem;
+    }
+
+    &__text {
+        font-family: "Cabin";
+        font-size: 2rem;
+        letter-spacing: .1rem;
+        color: $color-primary-light;
+        text-align: center;
+    }
+
+    &__link {
+        &,
+        &:link,
+        &:visited {
+            padding: 1rem 2rem;
+            background-image: linear-gradient(to right, $color-primary-light, $color-red);
+            font-family: "Cabin";
+            font-size: 2rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            color: $color-primary;
+            font-weight: bold;
+            box-shadow: 0rem .2rem .5rem black;
+            transition: all .5s;
+        }
+        &:hover {
+            transform: translateY(-2rem) scale(1.1);
+            box-shadow: 0rem 1.5rem .5rem black;
+        }
+        &:active {
+            transform: translateY(0rem);
+            box-shadow: 0rem .5rem .5rem black;
+        }
+    }
+}
