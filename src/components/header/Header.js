@@ -8,11 +8,11 @@ import tedrosImage from "../../assets/tedros-header.jpg"
 import fireSVG from "../../assets/fire.svg"
 const Header = () => {
     return (
-        <section id="home" className="header" data-aos="fade-down" data-aos-duration="1500" >
+        <section id="home" className="header">
             <img src={cautionSVG} alt="header-caution" className="header__background-icon"/>
 
             <div className="header__wrapper">
-                <div className="header__text-wrapper" data-aos="slide-right" data-aos-duration="1200">
+                <div className="header__text-wrapper">
                     <h1 className="header__title">Coronavirus</h1>
                     <p className="header__text">Coronaviruses (CoV) are a large family of viruses that cause illness ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS-CoV) and Severe Acute Respiratory Syndrome (SARS-CoV).</p>
                 </div>
